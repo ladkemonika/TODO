@@ -13,28 +13,26 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class LoginController {
 
 	private AuthenticationService authenticationService;
-	
-	
-	
+
 	public LoginController(AuthenticationService authenticationService) {
 		super();
 		this.authenticationService = authenticationService;
 	}
 
-	@RequestMapping(value = "login",method=RequestMethod.GET)
+	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String gotoLoginPage() {
-		return "/login";	
+		return "login";
 	}
-	
-	@RequestMapping(value = "login",method=RequestMethod.POST)
+
+	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String gotoWelcomePage(@RequestParam String name, @RequestParam String password, ModelMap model) {
-	
-		if(authenticationService.authenticate(name, password)) {
-			//model.put("password", password);
+
+		if (authenticationService.authenticate(name, password)) {
+			// model.put("password", password);
 			model.put("name", name);
-			return "welcome";	
+			return "welcome";
 		}
 		model.put("errorMessage", "invalid Credentials! please try again");
-		return "/login";
+		return "login";
 	}
 }
