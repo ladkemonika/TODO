@@ -4,14 +4,18 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
 @Entity
 public class Todo {
 
+	public Todo() {
+		
+	}
 	@Id
-	@GeneratedValue
+	@GeneratedValue() 
 	private int id;
 	private String username;
 	
