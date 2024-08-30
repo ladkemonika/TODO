@@ -17,9 +17,9 @@ import jakarta.validation.Valid;
 
 @Controller
 @SessionAttributes("name")
-public class TodoController {
+public class TodoControllerJPA {
 
-	public TodoController(TodoService todoService) {
+	public TodoControllerJPA(TodoService todoService) {
 		super();
 		this.todoService = todoService;
 	}
